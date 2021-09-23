@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .navbar-text h1 {
+        color: #fff;
+        font-size: 40px;
+        align-content: center;
+    }
+    
+    body {
+        background-color: grey;
+    }
+    
+    form {
+        margin-top: 50px;
+        margin: auto;
+        width: 35%;
+        ;
+    }
+    
+    .result {
+        margin: auto;
+        width: 35%;
+        border: 1px solid #ccc;
+        background-color: grey;
+        color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        ;
+    }
+</style>
+
+<head>
+    
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-dark">
+        <span class="navbar-text">
+            <h1>House Price Predictor</h1>
+        </span>
+    </nav>     
+
+<!-- input forms start -->
+    <form action="{{ url_for('main') }}" method="POST">
+        <div class="form-group">
+
+
+            <legend>Input Variables</legend>
+            
+            <br>powerPS:<br>
+            <input name="powerPS" type="number" step="any" min="0" class="form-control" required>
+            <br>
+
+
+            <br>model:<br>
+            <select id="model" name="model" type="text" class="form-control" required>
+                <option value="100">1_reihe</option>
+                <option value="145">145</option>
+                <option value="147">147</option>
+                <option value="156">156</option>
+                <option value="159">159</option>
+                <option value="1_reihe">1_reihe</option>
+                <option value="1er">1er</option>
+                <option value="200">200</option>
+                <option value="2_reihe">2_reihe</option>
+                <option value="300c">300c</option>
+                <option value="3_reihe">3_reihe</option>
+                <option value="3er">3er</option>
+                <option value="4_reihe">4_reihe</option>
+                <option value="500">500</option>
+                <option value="5_reihe">5_reihe</option>
+                <option value="5er">5er</option>
+                <option value="601">601</option>
+                <option value="6_reihe">6_reihe</option>
+                <option value="6er">6er</option>
+                <option value="7er">7er</option>
+                <option value="80">80</option>
+                <option value="850">850</option>
+                <option value="90">90</option>
+                <option value="900">900</option>
+                <option value="9000">9000</option>
+                <option value="911">911</option>
+                <option value="a1">a1</option>
+                <option value="a2">a2</option>
+                <option value="a3">a3</option>
+                <option value="a4">a4</option>
+                <option value="a5">a5</option>
+                <option value="a6">a6</option>
+                <option value="a8">a8</option>
+                <option value="a_klasse">a_klasse</option>
+                <option value="accord">accord</option>
+                <option value="agila">agila</option>
+                <option value="alhambra">alhambra</option>
+                <option value="almera">almera</option>
+                <option value="altea">altea</option>
+                <option value="amarok">amarok</option>
+                <option value="antara">antara</option>
+                <option value="arosa">arosa</option>
+                <option value="astra">astra</option>
+                <option value="auris">auris</option>
+                <option value="avensis">avensis</option>
+                <option value="aveo">aveo</option>
+                <option value="aygo">aygo</option>
+                <option value="b_klasse">b_klasse</option>
+                <option value="b_max">b_max</option>
+                <option value="beetle">beetle</option>
+                <option value="berlingo">berlingo</option>
+                <option value="bora">bora</option>
+                <option value="boxster">boxster</option>
+                <option value="bravo">bravo</option>
+                <option value="c1">c1</option>
+                <option value="c2">c2</option>
+                <option value="c3">c3</option>
+                <option value="c4">c4</option>
+                <option value="c5">c5</option>
+                <option value="c_klasse">c_klasse</option>
+                <option value="c_max">c_max</option>
+                <option value="c_reihe">c_reihe</option>
+                <option value="caddy">caddy</option>
+                <option value="calibra">calibra</option>
+                <option value="captiva">captiva</option>
+                <option value="carisma">carisma</option>
+                <option value="carnival">carnival</option>
+                <option value="cayenne">cayenne</option>
+                <option value="cc">cc</option>
+                <option value="ceed">ceed</option>
+                <option value="charade">charade</option>
+                <option value="cherokee">cherokee</option>
+                <option value="citigo">citigo</option>
+                <option value="civic">civic</option>
+                <option value="cl">cl</option>
+                <option value="clio">clio</option>
+                <option value="clk">clk</option>
+                <option value="clubman">clubman</option>
+                <option value="colt">colt</option>
+                <option value="combo">combo</option>
+                <option value="cooper">cooper</option>
+                <option value="cordoba">cordoba</option>
+                <option value="corolla">corolla</option>
+                <option value="corsa">corsa</option>
+                <option value="cr_reihe">cr_reihe</option>
+                <option value="croma">croma</option>
+                <option value="crossfire">crossfire</option>
+                <option value="cuore">cuore</option>
+                <option value="cx_reihe">cx_reihe</option>
+                <option value="defender">defender</option>
+                <option value="delta">delta</option>
+                <option value="discovery">discovery</option>
+                <option value="doblo">doblo</option>
+                <option value="ducato">ducato</option>
+                <option value="duster">duster</option>
+                <option value="e_klasse">e_klasse</option>
+                <option value="elefantino">elefantino</option>
+                <option value="eos">eos</option>
+                <option value="escort">escort</option>
+                <option value="espace">espace</option>
+                <option value="exeo">exeo</option>
+                <option value="fabia">fabia</option>
+                <option value="fiesta">fiesta</option>
+                <option value="focus">focus</option>
+                <option value="forester">forester</option>
+            </select>
+            <br>
+
+            <br>kilometer<br>
+            <input name="kilometer" type="number" step="any" min="0" class="form-control" required>
+            <br>
+
+            <br>fuelType<br>
+            <select id="fuelType" name="fuelType" type="text" class="form-control" required>
+                <option value="cng">cng</option>
+                <option value="diesel">diesel</option>
+                <option value="electro">electro</option>
+                <option value="hybrid">hybrid</option>
+                <option value="lpg">lpg</option>
+                <option value="other">other</option>
+                <option value="petrol">petrol</option>
+            </select>
+            <br>
+
+            <br>vehicleType<br>
+            <select id="vehicleType" name="vehicleType" type="text" class="form-control" required>
+                <option value="bus">bus</option>
+                <option value="cabrio">cabrio</option>
+                <option value="coupe">coupe</option>
+                <option value="limousine">limousine</option>
+                <option value="others">others</option>
+                <option value="small car">small car</option>
+                <option value="station wagon">station wagon</option>
+                <option value="suv">suv</option>
+            </select>
+            <br>
+
+            <br>gearbox<br>
+            <select id="gearbox" name="gearbox" type="text" class="form-control" required>
+                <option value="automatic">automatic</option>
+                <option value="manual">manual</option>
+            </select>
+            <br>
+
+            <br>notRepairedDamage<br>
+            <select id="notRepairedDamage" name="notRepairedDamage" type="text" class="form-control" required>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+            <br>
+            
+            
+            <br>brand<br>
+            <select id="brand" name="brand" class="form-control" type="text" required>
+                <option value="aalfa_romeoudi">alfa_romeo</option>
+                <option value="citroen">citroen</option>
+                <option value="dacia">dacia</option>
+                <option value="daewoo">daewoo</option>
+                <option value="daihatsu">daihatsu</option>
+                <option value="fiat">fiat</option>
+                <option value="ford">ford</option>
+                <option value="honda">honda</option>
+                <option value="hyundai">hyundai</option>
+                <option value="jaguar">jaguar</option>
+                <option value="jeep">jeep</option>
+                <option value="kia">kia</option>
+                <option value="bmw">bmw</option>
+                <option value="chevrolet">chevrolet</option>
+                <option value="chrysler">chrysler</option>
+            </select>
+            <br>
+            
+            <br>age<br>
+            <input name="age" type="number" step="any" min="0" class="form-control" required>
+            <br>
+
+            <br>
+            <input type="submit" value="Submit" class="btn btn-primary">
+
+        </div>
+
+    </form>
+
+    <br>
+
+    <div class="result" align="center">
+        {% if result %} {% for variable, value in original_input.items() %}
+        <b>{{ variable }}</b> : {{ value }} {% endfor %}
+        <br>
+        <br>
+        <h1>Predicted car Price (in $1000's):</h1>
+        <p style="font-size:50px">${{ result }}</p>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
